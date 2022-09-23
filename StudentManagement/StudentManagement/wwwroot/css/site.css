@@ -1,0 +1,37 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.card-custom {
+    min-width: 18rem;
+    display: inline-block;
+    max-height: 25rem;
+    justify-content: space-between;
+}
+
+.card-img {
+    max-width: 18rem;
+    max-height: 10rem;
+}
+
+.cards {
+    display: table;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
