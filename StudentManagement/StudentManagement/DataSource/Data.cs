@@ -5,7 +5,8 @@ namespace StudentManagement.DataSource
     public class Data
     {
         private static Data? _instance;
-        public List<Student> students = new List<Student>();
+        public List<Student> students = new();
+        public bool SignedIn = false;
 
         public static Data GetInstance()
         {

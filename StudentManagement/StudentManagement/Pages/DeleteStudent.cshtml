@@ -1,0 +1,17 @@
+﻿@page
+@model StudentManagement.Pages.DeleteStudentModel
+@{
+    if (Model.student == null) {
+        <h1 class="text-danger">Student does not exist</h1>
+    }
+    else 
+    {
+        var student = Model.student;
+
+        <h1>Are you sure you want to delete @student.FullName #@student.StudentNumber</h1>
+        <form method="post">
+            <button type="submit" class="btn btn-danger w-25 mt-4">YES</button>
+        </form>
+        <a asp-page="/Index" class="btn btn-primary w-25 mt-4">NO</a>
+    }
+}

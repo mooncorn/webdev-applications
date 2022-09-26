@@ -1,0 +1,30 @@
+﻿@page
+@model StudentManagement.Pages.CreateStudentModel
+@{
+    <h1>Create Student</h1>
+    <form method="post">
+        <div class="form-group">
+            <label>Student Number</label>
+            <input type="text" class="form-control" name="StudentNumber" />
+        </div>
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" class="form-control" name="FullName" />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="Email" />
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="Password" />
+        </div>
+        <div class="form-group">
+            <label>Picture</label>
+            <input type="url" class="form-control" name="Picture" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary mt-2 w-100">Create</button>
+        </div>
+    </form>
+}

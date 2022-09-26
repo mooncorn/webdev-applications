@@ -1,0 +1,33 @@
+﻿@page
+@model StudentManagement.Pages.EditStudentModel
+@{
+    if (Model.student == null) {
+        <h1 class="text-danger">Student does not exist</h1>
+    } 
+    else {
+        var student = Model.student;
+
+        <h1>Edit Student @student.StudentNumber</h1>
+        <form method="post">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" class="form-control" name="FullName" value="@student.FullName" />
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" name="Email" value="@student.Email" />
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" name="Password" />
+            </div>
+            <div class="form-group">
+                <label>Picture</label>
+                <input type="url" class="form-control" name="Picture" value="@student.Picture" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary mt-2 w-100">Edit</button>
+            </div>
+        </form>
+    }
+}

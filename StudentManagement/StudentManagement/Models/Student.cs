@@ -17,9 +17,14 @@
             Picture = picture;
         }
 
-        public bool isPasswordValid(string password)
+        public bool IsPasswordValid(string password)
         {
             return Password == password;
+        }
+
+        public void ChangePassword(string newPassword)
+        {
+            Password = newPassword;
         }
     }
 }
