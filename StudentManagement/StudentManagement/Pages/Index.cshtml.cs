@@ -9,6 +9,8 @@ namespace StudentManagement.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         public List<Student> Students { get; set; }
+        public string Error = String.Empty;
+        public bool HasError { get { return Error != null && Error != String.Empty; } }
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -16,9 +18,9 @@ namespace StudentManagement.Pages
             Students = Data.GetInstance().students;
         }
 
-        public void OnGet()
+        public void OnGet(string Error)
         {
-
+            this.Error = Error;
         }
     }
 }

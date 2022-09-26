@@ -4,6 +4,12 @@
     ViewData["Title"] = "Home page";
 }
 
+@if (Model.HasError) {
+    <div class="alert alert-danger" role="alert">
+        @Model.Error
+    </div>
+}
+
 <h1 class="text-center">Student Management</h1>
 
 <div class="m-auto cards">

@@ -9,13 +9,20 @@ namespace StudentManagement.Pages
     {
         public Student? student;
 
-        public void OnGet(string StudentNumber)
+        public async Task<ActionResult> OnGet(string StudentNumber)
         {
+            if (Data.GetInstance().User?.StudentNumber != StudentNumber) 
+                return RedirectToPage("Index", new { Error = "Unauthorized" });
+
             student = Data.GetInstance().students.Find(s => s.StudentNumber == StudentNumber);
+            return Page();
         }
 
         public async Task<ActionResult> OnPost(string StudentNumber, string FullName, string Email, string Password, string Picture)
         {
+            if (Data.GetInstance().User?.StudentNumber != StudentNumber)
+                return RedirectToPage("Index", new { Error = "Unauthorized" });
+
             student = Data.GetInstance().students.Find(s => s.StudentNumber == StudentNumber);
 
             if (student == null)

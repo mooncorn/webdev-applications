@@ -8,7 +8,7 @@ namespace StudentManagement.Pages
     {
         public async Task<ActionResult> OnGet()
         {
-            Data.GetInstance().SignedIn = false;
+            Data.GetInstance().User = null;
             return RedirectToPage("Index");
         }
     }

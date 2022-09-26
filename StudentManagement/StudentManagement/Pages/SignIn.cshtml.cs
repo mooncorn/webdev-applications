@@ -7,6 +7,8 @@ namespace StudentManagement.Pages
     public class SignInModel : PageModel
     {
         public string ErrorMessage = String.Empty;
+        public bool HasMessage { get { return ErrorMessage != null && ErrorMessage != String.Empty; } }
+
         public string StudentNumber = String.Empty;
 
         public void OnGet(string ErrorMessage, string StudentNumber)
@@ -19,17 +21,14 @@ namespace StudentManagement.Pages
         {
             var student = Data.GetInstance().students.Find(s => s.StudentNumber == StudentNumber);
 
-            if (student == null) 
-                return RedirectToPage("SignIn", new { ErrorMessage = $"Student #{StudentNumber} does not exist" });
-
-            if (student.IsPasswordValid(Password))
+            if (student != null && student.IsPasswordValid(Password))
             {
-                Data.GetInstance().SignedIn = true;
+                Data.GetInstance().User = student;
                 return Redirect("/");
-            }
+            } 
             else
             {
-                return RedirectToPage("SignIn", new { ErrorMessage = "Password is Invalid", StudentNumber });
+                return RedirectToPage("SignIn", new { ErrorMessage = "Student Number or Password is invalid" });
             }
         }
     }

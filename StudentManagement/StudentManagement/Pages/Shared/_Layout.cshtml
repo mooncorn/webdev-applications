@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 @{
-    var SignedIn = Data.GetInstance().SignedIn;
+    var IsSignedIn = Data.GetInstance().IsSignedIn;
 }
 
 <html lang="en">
@@ -29,7 +29,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        @if (!SignedIn) 
+                        @if (!IsSignedIn)
                         {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/SignIn">Sign In</a>
