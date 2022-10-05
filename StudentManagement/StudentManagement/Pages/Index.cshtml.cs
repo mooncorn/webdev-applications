@@ -11,15 +11,17 @@ namespace StudentManagement.Pages
         public List<Student> Students { get; set; }
         public string Error = String.Empty;
         public bool HasError { get { return Error != null && Error != String.Empty; } }
+        private readonly ApplicationDbContext _context;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext context)
         {
             _logger = logger;
-            Students = Data.GetInstance().students;
+            _context = context;
         }
 
         public void OnGet(string Error)
         {
+            Students = _context.Students.ToList();
             this.Error = Error;
         }
     }
