@@ -4,24 +4,29 @@
     <h1>Create Student</h1>
     <form method="post">
         <div class="form-group">
-            <label>Student Number</label>
-            <input type="text" class="form-control" name="StudentNumber" />
+            <label asp-for="@Model.Student.StudentNumber">Student Number</label>
+            <input asp-for="@Model.Student.StudentNumber" type="text" class="form-control"/>
+            <span asp-validation-for="@Model.Student.StudentNumber" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" class="form-control" name="FullName" />
+            <label asp-for="@Model.Student.FullName"></label>
+            <input asp-for="@Model.Student.FullName" type="text" class="form-control"/>
+            <span asp-validation-for="@Model.Student.FullName" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label>Email</label>
-            <input type="email" class="form-control" name="Email" />
+            <label asp-for="@Model.Student.Email"></label>
+            <input asp-for="@Model.Student.Email" type="email" class="form-control"/>
+            <span asp-validation-for="@Model.Student.Email" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="Password" />
+            <label asp-for="@Model.Student.Password"></label>
+            <input asp-for="@Model.Student.Password" type="password" class="form-control" />
+            <span asp-validation-for="@Model.Student.Password" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label>Picture</label>
-            <input type="url" class="form-control" name="Picture" />
+            <label asp-for="@Model.Student.Picture"></label>
+            <input asp-for="@Model.Student.Picture" type="url" class="form-control"/>
+            <span asp-validation-for="@Model.Student.Picture" class="text-danger"></span>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary mt-2 w-100">Create</button>

@@ -1,0 +1,40 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Products</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Buy Price</th>
+            <th>Sell Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <body>
+        @foreach (var product in Model.Products)
+        {
+            var rowStyle = product.Quantity < 10 ? "text-danger" : "text-dark";
+
+            <tr class="@rowStyle">
+                <td>@product.ProductId</td>
+                <td>@product.ProductDescription</td>
+                <td>@product.Quantity</td>
+                <td>$@product.BuyPrice</td>
+                <td>$@product.SellPrice</td>
+                <td>
+                    <a asp-page="/Edit" asp-route-id=@product.ProductId class="btn btn-warning"><i class="bi bi-pencil-square me-2"></i>Edit</a>
+                    <a asp-page="/Delete" asp-route-id=@product.ProductId class="btn btn-danger"><i class="bi bi-trash me-2"></i>Delete</a>
+                </td>
+            </tr>
+        }
+    </body>
+</table>

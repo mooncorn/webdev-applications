@@ -1,17 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using StudentManagement.DataSource;
-using StudentManagement.Models;
+using Pilarski_David_Midterm.Data;
+using Pilarski_David_Midterm.Models;
 
-namespace StudentManagement.Pages
+namespace Pilarski_David_Midterm.Pages
 {
-    public class CreateStudentModel : PageModel
+    public class CreateModel : PageModel
     {
         [BindProperty]
-        public Student Student { get; set; }
+        public Product Product { get; set; }
+
         private readonly ApplicationDbContext _context;
 
-        public CreateStudentModel(ApplicationDbContext context)
+        public CreateModel(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -20,15 +21,16 @@ namespace StudentManagement.Pages
         {
         }
 
-        public async Task<ActionResult> OnPost(Student student)
+        public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid)
             {
-                await _context.Students.AddAsync(student);
+                await _context.Products.AddAsync(Product);
                 await _context.SaveChangesAsync();
 
                 return RedirectToPage("Index");
             }
+
             return Page();
         }
     }

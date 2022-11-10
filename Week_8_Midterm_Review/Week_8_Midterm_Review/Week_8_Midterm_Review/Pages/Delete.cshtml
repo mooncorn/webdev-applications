@@ -1,0 +1,12 @@
+﻿@page
+@model Week_8_Midterm_Review.Pages.DeleteModel
+@{
+}
+
+<form method="post">
+    <h1>ARE YOU SURE?</h1>
+    <h2>@Model.Product.ProductName</h2>
+    <h2>@Model.Product.ProductPrice</h2>
+    <button type="submit" class="btn btn-danger w-50 mt-4">YES</button>
+    <a asp-page="/Index" class="btn btn-success w-50 mt-4">NO</a>
+</form>
